@@ -22,3 +22,7 @@ Steps to import the data from your MaxSite CMS site:
 * Install "Importer From MaxSite" (https://github.com/zahardoc/importer-from-maxsite) plugin on your WordPress site.
 * Go to the "Importer From MaxSite" page.
 * Provide your MaxSite url and click "Import Content" button.
+
+== Changelog ==
+= Version 1.1 =
+* Added page comments data to export_api/v1/pages endpoint
