@@ -71,8 +71,16 @@ class API
 			        'work_cut'    => false,
 			        'order_asc'   => 'asc',
 		        ];
-		        $this->sendJson(mso_get_pages($params, $pag), 200);
+
+		        $pages = mso_get_pages($params, $pag);
+
+		        foreach ( $pages as $k => $page ) {
+			        $comments = $page['page_count_comments'] ? mso_get_comments($page['page_id']) : [];
+                    $pages[$k]['page_comments'] = $comments;
+		        }
+		        $this->sendJson($pages, 200);
 		        break;
+
 
             default: //todo: return list of the usable urls
 		        $res = 'Wrong endpoint. ';
